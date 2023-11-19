@@ -20,5 +20,5 @@ func Run() error {
 
 	ginEngine.POST("/policy", controller.CreatePolicy)
 
-	return ginEngine.Run("11100")
+	return ginEngine.Run("localhost:11100")
 }
