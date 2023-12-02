@@ -17,9 +17,9 @@ type Usecase interface {
 	Run(Input) (Output, error)
 }
 
-type ExistsRegisterUserEvent = func(user.UserID) (bool, error)
+type ExistsRegisterUserEvent func(user.UserID) (bool, error)
 
-type AddRegisterUserEvent = func(registeruserevent.RegisterUserEvent) (registeruserevent.RegisterUserEvent, error)
+type AddRegisterUserEvent func(registeruserevent.RegisterUserEvent) (registeruserevent.RegisterUserEvent, error)
 
 type usecase struct {
 	existsRegisterUserEvent ExistsRegisterUserEvent

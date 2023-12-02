@@ -1,6 +1,6 @@
 package id
 
-type Generate = func() string
+type Generate func() string
 
 func dummyGenerator() string {
 	return "dummy"
