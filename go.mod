@@ -5,6 +5,7 @@ go 1.21.0
 require (
 	github.com/aws/aws-sdk-go v1.48.11 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
+	github.com/doug-martin/goqu/v9 v9.19.0 // indirect
 	github.com/guregu/dynamo v1.21.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
