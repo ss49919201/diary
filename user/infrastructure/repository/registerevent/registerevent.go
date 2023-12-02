@@ -1,24 +1,22 @@
 package registerevent
 
 import (
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/guregu/dynamo"
 	"github.com/ss49919201/diary/user/domain/entity/registeruserevent"
 	"github.com/ss49919201/diary/user/domain/entity/user"
 	registerusereventRepo "github.com/ss49919201/diary/user/repository/registeruserevent"
+	"github.com/uptrace/bun"
 )
 
 var _ registerusereventRepo.Repository = (*Repository)(nil)
 
 type Repository struct {
-	db *dynamo.DB
+	ddb *dynamo.DB
+	db  *bun.DB
 }
 
-func NewRepository() *Repository {
-	sess := session.Must(session.NewSession())
-	db := dynamo.New(sess, &aws.Config{Region: aws.String("us-west-2")})
-	return &Repository{db}
+func NewRepository(ddb *dynamo.DB, db *bun.DB) *Repository {
+	return &Repository{ddb, db}
 }
 
 func (r *Repository) Add(registeruserevent.RegisterUserEvent) (registeruserevent.RegisterUserEvent, error)
