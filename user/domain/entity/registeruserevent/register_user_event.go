@@ -17,3 +17,11 @@ func NewRegisterUserEvent(registeredUser user.User, registeredAt time.Time) Regi
 		registeredAt:   registeredAt,
 	}
 }
+
+func (r *RegisterUserEvent) UserID() user.UserID {
+	return r.registeredUser.UserID()
+}
+
+func (r *RegisterUserEvent) RegisteredAt() time.Time {
+	return r.registeredAt
+}
