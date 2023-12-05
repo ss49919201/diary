@@ -9,7 +9,7 @@ func NewUser(id UserID) User {
 }
 
 func (u *User) UserID() UserID {
-	return u.UserID()
+	return u.id
 }
 
 type UserID struct {
